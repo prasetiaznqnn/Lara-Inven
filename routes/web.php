@@ -16,13 +16,12 @@ use App\Http\Controllers\BarangmasukController;
 |
 */
 
-
-
-
-// /barangmasuk =>itu digunakan di a href=" " kalo view barangmasuk ngambil nama file nya
+// Route ke halaman utama
 Route::get('/', [BarangController::class, 'index']);
-Route::get('/barangkeluar', [BarangkeluarController::class, 'index']);
-Route::get('/barangmasuk', [BarangmasukController::class, 'index']);
+Route::post('/master-barang', [BarangController::class, 'store'])->name('master-barang.store');
+
+Route::get('/barangkeluar', [BarangKeluarController::class, 'index']);
+Route::get('/barangmasuk', [BarangMasukController::class, 'index']);
 
 Route::get('/login', function () {
     return view('login', ['title' => 'Login']);
